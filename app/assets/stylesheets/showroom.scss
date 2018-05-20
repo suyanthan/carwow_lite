@@ -1,0 +1,163 @@
+// If you wish to use Neat, uncomment the following line
+@import "neat";
+
+$width-large: 1200px;
+$white-colour: #ffffff;
+$font-size-extra-small-small: 14px;
+$font-size-small: 16px;
+$font-size-medium: 18px;
+$font-size-large: 24px;
+$font-size-extra-large: 28px;
+
+$desktop-neat-grid: (
+  columns: 12,
+  gutter: 20px,
+  media: 1440px,
+);
+
+$tablet-neat-grid: (
+  columns: 12,
+  gutter: 20px,
+  media: 768px,
+);
+
+
+.showroom{
+    max-width: $width-large;
+    margin: 50px auto;
+	&__items-container{
+		box-sizing: border-box;
+    	display: block;
+    	float:left;
+    	width:100%;
+		.item{
+
+			margin-bottom:20px;
+			display: block;
+			@include grid-media($tablet-neat-grid){
+				@include grid-column(6);
+			}
+
+			@include grid-media($desktop-neat-grid){
+				@include grid-column(3);
+			}
+
+			&__img-container{
+				position: relative;
+    			display: block;
+
+    			>img{
+				    display: block;
+				    width: 100%;
+				    height: auto;
+    			}
+			}
+			&__img-container:after{
+				display: block;
+    			position: relative;
+  	 			margin-top: -100px;
+    			height: 100px;
+    			content: '';
+    			background-image: linear-gradient(to top, #0a0b0c, rgba(273, 80, 115, 0));
+				@include grid-media($tablet-neat-grid){
+  	 				margin-top: -225px;
+    				height: 225px;
+				}
+
+				@include grid-media($desktop-neat-grid){
+  	 				margin-top: -180px;
+    				height: 180px;
+				}
+
+
+			}
+			&__make{
+				position:absolute;
+				top:0;
+				z-index:1;
+				color:$white-colour;
+				font-size:$font-size-small;
+				top:85px;
+				left:30px;
+				@include grid-media($tablet-neat-grid){
+					font-size:$font-size-medium;
+					top:140px;
+					left:30px;
+				}
+				@include grid-media($desktop-neat-grid){
+					top:69px;
+					left:30px;
+				}
+			}
+			&__modal{
+				position:absolute;
+				color:$white-colour;
+				z-index:1;
+				font-weight:bold;
+				font-size:$font-size-large;
+				top:102px;
+				left:30px;
+				@include grid-media($tablet-neat-grid){
+					font-size:$font-size-extra-large;
+					top:160px;
+					left:30px;
+				}
+				@include grid-media($desktop-neat-grid){
+					top:94px;
+					left:30px;
+				}
+
+			}
+			&__offer{
+				position: absolute;
+				top:10px;
+				left:30px;
+			    border-radius: 40px;
+			    background-color: #00a4ff;
+			    padding: 3px 10px;
+			    color: $white-colour;
+			}
+			&__description{
+				padding:20px;
+				position:relative;
+  				border-bottom-right-radius: 6px;
+  				border-bottom-left-radius: 6px;
+  				border: solid 1px #eeeeee;
+  				border-top:none;
+				&--engine{
+					font-size:$font-size-small;
+					font-weight: bold;
+	  				line-height: 1.25;
+	  				padding-bottom:5px;
+					white-space: nowrap;
+				    width: 85%;                   
+				    overflow: hidden;               
+				    -o-text-overflow: ellipsis;    
+				    text-overflow:    ellipsis;
+	  			}
+	  			&--detail{
+	  				font-size:$font-size-extra-small-small;
+	  				color:#4d4f52;
+	  			}
+	  			.carret-right{
+				 	position: absolute;
+				    width: 20px;
+				    height: 20px;
+				    right: 10px;
+				    top: 30px;
+	  			}
+			}
+			.delete-icon{
+			    position: absolute;
+			    width: 25px;
+			    height: 31px;
+			    right: 10px;
+			    top: 10px;
+			    z-index: 1;
+			    cursor:pointer;
+			}
+		}
+
+	}
+
+}

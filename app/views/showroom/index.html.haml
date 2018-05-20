@@ -1,0 +1,22 @@
+%div.showroom
+  %div.showroom__items-container
+    - @cars.each do |car|
+      -# all available data: car[:make], car[:model], car[:engine], car[:details], car[:image_name], car[:has_new_offer]
+
+      %figure.item
+        %div.item__img-container
+          %img{:src => asset_path(car[:image_name])}
+          %span.item__make 
+            = car[:make]
+          %span.item__modal 
+            = car[:model]
+          - if car[:has_new_offer]
+            %span.item__offer 1 new offer
+          =image_tag "/assets/bin.svg", :class => "delete-icon"
+        %figcaption
+          %div.item__description
+            %div.item__description--engine
+              = car[:engine]
+            %div.item__description--detail
+              = car[:details]
+            =image_tag "/assets/carret_right.svg", :class => "carret-right"

@@ -1,0 +1,11 @@
+!!!
+%html
+  %head
+    %title carwow Front-end developer test
+    %meta{content: "width=device-width, initial-scale=1", name: "viewport"}
+    = csrf_meta_tags
+    = javascript_include_tag 'application'
+    = stylesheet_link_tag 'application'
+
+  %body
+    = yield
